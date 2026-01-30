@@ -1,1 +1,19 @@
-<p>profile works!</p>
+<!--  -->
+<div class="my-3 mx-4 md:mx-6">
+  <!-- profile data component-->
+  <app-profile-header></app-profile-header>
+
+  <!-- contact and order history -->
+  <div class="flex flex-col md:flex-row gap-6">
+    <!-- contact component -->
+    <app-profile-contact-info></app-profile-contact-info>
+
+    <div class="flex flex-col gap-6 w-full">
+      <!-- orders component -->
+      <app-profile-orders></app-profile-orders>
+
+      <!-- contact us component -->
+      <app-profile-contact-us></app-profile-contact-us>
+    </div>
+  </div>
+</div>
