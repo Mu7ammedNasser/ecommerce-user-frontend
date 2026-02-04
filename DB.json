@@ -5,10 +5,9 @@
       "fullName": "John Doe",
       "email": "john@example.com",
       "password": "password123",
-      "address": {
-        "country": "Egypt",
-        "city": "Cairo"
-      },
+      "country": "Egypt",
+      "city": "Cairo",
+      "confirmPassword": "password123",
       "role": "user",
       "createdAt": "2025-01-15T10:00:00Z"
     },
