@@ -10,7 +10,7 @@
 // export class SideBar {}
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -21,20 +21,17 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './side-bar.css',
 })
 export class SideBar {
+  constructor(private router: Router) {}
   filters = {
     brands: {
-      apple: true,
+      apple: false,
       samsung: false,
-      dell: true,
+      dell: false,
       hp: false,
       lenovo: false,
     },
   };
 
-  onBrandChange() {
-    // Emit filter changes or update service
-    console.log('Brand filters changed:', this.filters.brands);
-  }
 
   resetFilters() {
     this.filters.brands = {
@@ -44,9 +41,9 @@ export class SideBar {
       hp: false,
       lenovo: false,
     };
+    this.router.navigate(['categories']);
+    
   }
 
-  clearAllFilters() {
-    this.resetFilters();
-  }
+
 }

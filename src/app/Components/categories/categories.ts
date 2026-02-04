@@ -57,9 +57,11 @@ export class Categories implements OnInit {
       category: 'computers',
       categoryLabel: 'Computers',
       price: 2499,
-      imgUrl: 'https://m.media-amazon.com/images/I/71LnExW-AWL._AC_UL480_FMwebp_QL65_.jpg',
+      originalPrice: 2999,
+      imgUrl: 'https://images.pexels.com/photos/14483025/pexels-photo-14483025.jpeg',
       rating: 4,
       reviews: 128,
+      onSale: false,
     },
     {
       id: 2,
@@ -67,9 +69,11 @@ export class Categories implements OnInit {
       category: 'computers',
       categoryLabel: 'Computers',
       price: 1899,
-      imgUrl: 'https://m.media-amazon.com/images/I/71LnExW-AWL._AC_UL480_FMwebp_QL65_.jpg',
+      originalPrice: 2299,
+      imgUrl: 'https://images.pexels.com/photos/14483025/pexels-photo-14483025.jpeg',
       rating: 5,
       reviews: 98,
+      onSale: true,
     },
     {
       id: 3,
@@ -77,9 +81,11 @@ export class Categories implements OnInit {
       category: 'computers',
       categoryLabel: 'Computers',
       price: 1699,
-      imgUrl: 'https://m.media-amazon.com/images/I/71LnExW-AWL._AC_UL480_FMwebp_QL65_.jpg',
+      originalPrice: 1999,
+      imgUrl: 'https://images.pexels.com/photos/14483025/pexels-photo-14483025.jpeg',
       rating: 4,
       reviews: 76,
+      onSale: false,
     },
     {
       id: 4,
@@ -87,21 +93,23 @@ export class Categories implements OnInit {
       category: 'computers',
       categoryLabel: 'Computers',
       price: 1799,
-      imgUrl: 'https://m.media-amazon.com/images/I/71LnExW-AWL._AC_UL480_FMwebp_QL65_.jpg',
+      originalPrice: 2199,
+      imgUrl: 'https://images.pexels.com/photos/14483025/pexels-photo-14483025.jpeg',
       rating: 5,
       reviews: 143,
+      onSale: false,
     },
-
-    // ================= Smartphones =================
     {
       id: 5,
       title: 'iPhone 15 Pro',
       category: 'smartphones',
       categoryLabel: 'Smartphones',
       price: 1199,
-      imgUrl: 'https://m.media-amazon.com/images/I/71LnExW-AWL._AC_UL480_FMwebp_QL65_.jpg',
+      originalPrice: 1399,
+      imgUrl: 'https://images.pexels.com/photos/14483025/pexels-photo-14483025.jpeg',
       rating: 4,
       reviews: 210,
+      onSale: false,
     },
     {
       id: 6,
@@ -109,9 +117,11 @@ export class Categories implements OnInit {
       category: 'smartphones',
       categoryLabel: 'Smartphones',
       price: 1299,
-      imgUrl: 'https://m.media-amazon.com/images/I/71LnExW-AWL._AC_UL480_FMwebp_QL65_.jpg',
+      originalPrice: 1499,
+      imgUrl: 'https://images.pexels.com/photos/14483025/pexels-photo-14483025.jpeg',
       rating: 5,
       reviews: 185,
+      onSale: false,
     },
     {
       id: 7,
@@ -119,10 +129,11 @@ export class Categories implements OnInit {
       category: 'smartphones',
       categoryLabel: 'Smartphones',
       price: 999,
-
-      imgUrl: 'https://m.media-amazon.com/images/I/71LnExW-AWL._AC_UL480_FMwebp_QL65_.jpg',
+      originalPrice: 1199,
+      imgUrl: 'https://images.pexels.com/photos/14483025/pexels-photo-14483025.jpeg',
       rating: 4,
       reviews: 92,
+      onSale: false,
     },
     {
       id: 8,
@@ -130,23 +141,23 @@ export class Categories implements OnInit {
       category: 'smartphones',
       categoryLabel: 'Smartphones',
       price: 899,
-
-      imgUrl: 'https://m.media-amazon.com/images/I/71LnExW-AWL._AC_UL480_FMwebp_QL65_.jpg',
+      originalPrice: 1099,
+      imgUrl: 'https://images.pexels.com/photos/14483025/pexels-photo-14483025.jpeg',
       rating: 4,
       reviews: 67,
+      onSale: false,
     },
-
-    // ================= Audio & Sound =================
     {
       id: 9,
       title: 'Sony WH-1000XM5',
       category: 'sound',
       categoryLabel: 'Audio & Sound',
       price: 399,
-
-      imgUrl: 'https://m.media-amazon.com/images/I/71LnExW-AWL._AC_UL480_FMwebp_QL65_.jpg',
+      originalPrice: 499,
+      imgUrl: 'https://images.pexels.com/photos/14483025/pexels-photo-14483025.jpeg',
       rating: 5,
       reviews: 340,
+      onSale: false,
     },
     {
       id: 10,
@@ -154,10 +165,11 @@ export class Categories implements OnInit {
       category: 'sound',
       categoryLabel: 'Audio & Sound',
       price: 429,
-
-      imgUrl: 'https://m.media-amazon.com/images/I/71LnExW-AWL._AC_UL480_FMwebp_QL65_.jpg',
+      originalPrice: 529,
+      imgUrl: 'https://images.pexels.com/photos/14483025/pexels-photo-14483025.jpeg',
       rating: 5,
       reviews: 220,
+      onSale: false,
     },
     {
       id: 11,
@@ -165,10 +177,11 @@ export class Categories implements OnInit {
       category: 'sound',
       categoryLabel: 'Audio & Sound',
       price: 249,
-
-      imgUrl: 'https://m.media-amazon.com/images/I/71LnExW-AWL._AC_UL480_FMwebp_QL65_.jpg',
+      originalPrice: 299,
+      imgUrl: 'https://images.pexels.com/photos/14483025/pexels-photo-14483025.jpeg',
       rating: 4,
       reviews: 410,
+      onSale: false,
     },
     {
       id: 12,
@@ -176,23 +189,23 @@ export class Categories implements OnInit {
       category: 'sound',
       categoryLabel: 'Audio & Sound',
       price: 179,
-
-      imgUrl: 'https://m.media-amazon.com/images/I/71LnExW-AWL._AC_UL480_FMwebp_QL65_.jpg',
+      originalPrice: 199,
+      imgUrl: 'https://images.pexels.com/photos/14483025/pexels-photo-14483025.jpeg',
       rating: 4,
       reviews: 305,
+      onSale: false,
     },
-
-    // ================= Gaming Gear =================
     {
       id: 13,
       title: 'PlayStation 5 DualSense Controller',
       category: 'gaming-gear',
       categoryLabel: 'Gaming Gear',
       price: 69,
-
-      imgUrl: 'https://m.media-amazon.com/images/I/71LnExW-AWL._AC_UL480_FMwebp_QL65_.jpg',
+      originalPrice: 79,
+      imgUrl: 'https://images.pexels.com/photos/14483025/pexels-photo-14483025.jpeg',
       rating: 5,
       reviews: 540,
+      onSale: false,
     },
     {
       id: 14,
@@ -200,10 +213,11 @@ export class Categories implements OnInit {
       category: 'gaming-gear',
       categoryLabel: 'Gaming Gear',
       price: 64,
-
-      imgUrl: 'https://m.media-amazon.com/images/I/71LnExW-AWL._AC_UL480_FMwebp_QL65_.jpg',
+      originalPrice: 74,
+      imgUrl: 'https://images.pexels.com/photos/14483025/pexels-photo-14483025.jpeg',
       rating: 4,
       reviews: 390,
+      onSale: false,
     },
     {
       id: 15,
@@ -211,10 +225,11 @@ export class Categories implements OnInit {
       category: 'gaming-gear',
       categoryLabel: 'Gaming Gear',
       price: 199,
-
-      imgUrl: 'https://m.media-amazon.com/images/I/71LnExW-AWL._AC_UL480_FMwebp_QL65_.jpg',
+      originalPrice: 299,
+      imgUrl: 'https://images.pexels.com/photos/14483025/pexels-photo-14483025.jpeg',
       rating: 4,
       reviews: 155,
+      onSale: false,
     },
     {
       id: 16,
@@ -222,10 +237,11 @@ export class Categories implements OnInit {
       category: 'gaming-gear',
       categoryLabel: 'Gaming Gear',
       price: 159,
-
-      imgUrl: 'https://m.media-amazon.com/images/I/71LnExW-AWL._AC_UL480_FMwebp_QL65_.jpg',
+      originalPrice: 199,
+      imgUrl: 'https://images.pexels.com/photos/14483025/pexels-photo-14483025.jpeg',
       rating: 5,
       reviews: 480,
+      onSale: false,
     },
   ];
 }
