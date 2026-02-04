@@ -1,0 +1,110 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "fullName": "John Doe",
+      "email": "john@example.com",
+      "password": "password123",
+      "address": {
+        "country": "Egypt",
+        "city": "Cairo"
+      },
+      "role": "user",
+      "createdAt": "2025-01-15T10:00:00Z"
+    },
+    {
+      "id": 2,
+      "fullName": "Mohammed Nasser",
+      "email": "mohammed@example.com",
+      "password": "123456",
+      "address": {
+        "country": "Egypt",
+        "city": "Giza"
+      },
+      "role": "admin",
+      "createdAt": "2025-01-20T14:30:00Z"
+    }
+  ],
+
+  "categories": [
+    {
+      "id": 1,
+      "name": "electronics",
+      "label": "Electronics"
+    },
+    {
+      "id": 2,
+      "name": "fashion",
+      "label": "Fashion"
+    },
+    {
+      "id": 3,
+      "name": "home",
+      "label": "Home Appliances"
+    }
+  ],
+
+  "products": [
+    {
+      "id": 1,
+      "title": "iPhone 15 Pro",
+      "category": "electronics",
+      "categoryLabel": "Electronics",
+      "price": 45000,
+      "rating": 4.8,
+      "reviews": 320
+    },
+    {
+      "id": 2,
+      "title": "Nike Air Max",
+      "category": "fashion",
+      "categoryLabel": "Fashion",
+      "price": 4200,
+      "rating": 4.5,
+      "reviews": 210
+    },
+    {
+      "id": 3,
+      "title": "Samsung Smart TV 55\"",
+      "category": "home",
+      "categoryLabel": "Home Appliances",
+      "price": 28000,
+      "rating": 4.6,
+      "reviews": 180
+    }
+  ],
+
+  "cart": [
+    {
+      "id": 1,
+      "userId": 1,
+      "items": [
+        {
+          "productId": 1,
+          "quantity": 1
+        },
+        {
+          "productId": 2,
+          "quantity": 2
+        }
+      ]
+    }
+  ],
+
+  "orders": [
+    {
+      "id": 1,
+      "userId": 1,
+      "items": [
+        {
+          "productId": 1,
+          "quantity": 1,
+          "price": 45000
+        }
+      ],
+      "totalPrice": 45000,
+      "status": "completed",
+      "createdAt": "2025-02-01T12:00:00Z"
+    }
+  ]
+}
