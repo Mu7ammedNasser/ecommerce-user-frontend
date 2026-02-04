@@ -1,1 +1,21 @@
-<p>categories works!</p>
+<div class="flex gap-8">
+  <app-side-bar></app-side-bar>
+
+  <section class="space-y-6">
+    <!-- Category Title -->
+    <h1 class="text-2xl font-bold text-white">
+      {{ CategoryTitle }}
+    </h1>
+
+    <!-- Products Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      @for (product of filteredProducts; track product.id) {
+        <app-products [product]="product"></app-products>
+      }
+    </div>
+
+    @if (filteredProducts.length === 0) {
+      <p class="text-slate-400">No products found in this category.</p>
+    }
+  </section>
+</div>
