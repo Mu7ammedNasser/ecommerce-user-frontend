@@ -1,0 +1,104 @@
+<div
+    class="bg-slate-800 rounded-xl p-6 border border-slate-700 hover:border-slate-600 transition"
+  >
+    <!-- <app-item [item]="item"></app-item> -->
+
+    <div class="flex flex-row md:flex-row gap-6">
+      <!-- Product Image -->
+      <div class="shrink-0">
+        <div class="w-24 h-24 bg-slate-700 rounded-lg overflow-hidden">
+          <img
+            [src]="item.image"
+            [alt]="item.name"
+            class="w-full h-full object-cover"
+            onerror="
+              this.src =
+                'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22%3E%3Crect fill=%22%23334155%22 width=%22100%22 height=%22100%22/%3E%3Ctext fill=%22%2364748b%22 font-family=%22sans-serif%22 font-size=%2212%22 x=%2250%%22 y=%2250%%22 text-anchor=%22middle%22 dy=%22.3em%22%3EImage%3C/text%3E%3C/svg%3E'
+            "
+          />
+        </div>
+      </div>
+
+      <!-- Product Details -->
+      <div class="grow">
+        <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
+          <div>
+            <h3 class="text-lg font-semibold mb-1">{{ item.name }}</h3>
+            <p class="text-sm text-gray-400">{{ item.description }}</p>
+          </div>
+          <div class="text-xl font-bold text-blue-400 mt-2 md:mt-0">
+            ${{ getSubtotal(item).toFixed(2) }}
+          </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <!-- Quantity Controls -->
+          <div class="flex items-center space-x-3">
+            <button
+              class="w-8 h-8 rounded-lg bg-slate-700 hover:bg-slate-600 transition flex items-center justify-center"
+              (click)="decreaseQuantity(item)"
+            >
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M20 12H4"
+                />
+              </svg>
+            </button>
+            <input
+              type="text"
+              [value]="item.quantity"
+              readonly
+              class="w-12 h-8 bg-slate-700 rounded-lg text-center focus:outline-none focus:ring-2 focus:ring-blue-500"
+              
+              />
+            <button
+              class="w-8 h-8 rounded-lg bg-slate-700 hover:bg-slate-600 transition flex items-center justify-center"
+              (click)="increaseQuantity(item)"
+              >
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 4v16m8-8H4"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Remove & Save Actions -->
+          <div class="flex items-center space-x-4 text-sm">
+            <button class="flex items-center space-x-1 text-gray-400 hover:text-red-400 transition"
+              (click)="removeItem(item)">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                />
+              </svg>
+              <span>Remove</span>
+            </button>
+            <!-- <button
+              class="flex items-center space-x-1 text-gray-400 hover:text-blue-400 transition"
+            >
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"
+                />
+              </svg>
+              <span>Save for later</span>
+            </button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
