@@ -5,6 +5,8 @@ export interface Product {
   categoryLabel: string;
   imgUrl: string;
   price: number;
+  originalPrice: number;
   rating: number;
   reviews: number;
+  onSale: boolean;
 }
