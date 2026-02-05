@@ -7,11 +7,15 @@ import { Observable } from 'rxjs';
 })
 export class Auth {
 
-  constructor(private httpClient :HttpClient){}
+  constructor(private httpClient: HttpClient) { }
 
-  registerApi(data:object):Observable<any>{
+  registerApi(data: object): Observable<any> {
 
-    return this.httpClient.post("http://localhost:4000/users",data);
+    return this.httpClient.post("http://localhost:4000/users", data);
   }
-  
+
+  loginApi(): Observable<any> {
+    return this.httpClient.get("http://localhost:4000/users");
+  }
+
 }

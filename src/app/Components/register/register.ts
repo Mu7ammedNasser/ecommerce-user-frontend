@@ -1,6 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Auth } from '../../Core/Services/auth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -11,7 +12,11 @@ import { Auth } from '../../Core/Services/auth';
 export class Register {
   errorMsg = signal<string>("");
   isLoading = signal<boolean>(false);
-  constructor(private authService: Auth) { }
+  constructor(private authService: Auth, private router: Router) { }
+
+  navigateToLogin() {
+    this.router.navigate(['/login']);
+  }
 
 
 
@@ -21,8 +26,8 @@ export class Register {
     firstName: new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(20)]),
     lastName: new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(20)]),
     email: new FormControl(null, [Validators.required, Validators.email]),
-    country: new FormControl(null),
-    city: new FormControl(null),
+    country: new FormControl(null, [Validators.required]),
+    city: new FormControl(null, [Validators.required]),
     password: new FormControl(null, [Validators.required, Validators.pattern(/^[a-zA-Z0-9]{6,}$/)]),
     confirmPassword: new FormControl(null, [Validators.required, Validators.pattern(/^[a-zA-Z0-9]{6,}$/)]),
   }, this.passwordsMatch)
@@ -35,12 +40,11 @@ export class Register {
         next: (response) => {
           console.log(response);
           this.isLoading.set(false);
-          // Handle success (e.g., navigate to login)
+          this.navigateToLogin();
         },
         error: (err) => {
           console.error(err);
           this.isLoading.set(false);
-          // Backend might return error.error.message or just error.message
           const message = err.error?.message || err.message || "An unexpected error occurred. Please try again.";
           this.errorMsg.set(message);
         },
@@ -53,6 +57,8 @@ export class Register {
 
     }
     else {
+
+      console.log(this.registerForm.value);
       this.registerForm.markAllAsTouched();
     }
   }
