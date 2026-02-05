@@ -1,0 +1,29 @@
+.processing {
+  padding: 5px 10px;
+  border-radius: 30px;
+  background-color: #13213e;
+  width: fit-content;
+  color: #137fec;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.in-transit {
+  padding: 5px 10px;
+  border-radius: 30px;
+  background-color: #ffedd5;
+  width: fit-content;
+  color: #ea580c;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.delivered {
+  padding: 5px 10px;
+  border-radius: 30px;
+  background-color: #dcfce7;
+  width: fit-content;
+  color: #16a34a;
+  font-weight: 500;
+  white-space: nowrap;
+}
