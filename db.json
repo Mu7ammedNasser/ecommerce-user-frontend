@@ -29,6 +29,36 @@
       "city": "Alexandria",
       "password": "123456789",
       "confirmPassword": "123456789"
+    },
+    {
+      "id": "6c15",
+      "firstName": "ahmed",
+      "lastName": "mohamed",
+      "email": "ahmedfathi5005@gmail.com",
+      "country": "Egypt",
+      "city": "Cairo",
+      "password": "12356789",
+      "confirmPassword": "12356789"
+    },
+    {
+      "id": "eafd",
+      "firstName": "ahmd",
+      "lastName": "asj",
+      "email": "ahmedfathi50105@gmail.com",
+      "country": "Egypt",
+      "city": "Giza",
+      "password": "147852",
+      "confirmPassword": "147852"
+    },
+    {
+      "id": "60d0",
+      "firstName": "ahmed",
+      "lastName": "fathi",
+      "email": "test@test.com",
+      "country": "UAE",
+      "city": "Cairo",
+      "password": "123123",
+      "confirmPassword": "123123"
     }
   ],
   "categories": [

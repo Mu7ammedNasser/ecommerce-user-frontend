@@ -36,24 +36,58 @@ export class Register {
 
     if (this.registerForm.valid) {
       this.isLoading.set(true);
-      this.authService.registerApi(this.registerForm.value).subscribe({
-        next: (response) => {
-          console.log(response);
-          this.isLoading.set(false);
-          this.navigateToLogin();
+      this.authService.loginApi().subscribe({
+        next: (users: any[]) => {
+          console.log(users);
+          const user = users.find(u => u.email === this.registerForm.value.email);
+          if (user) {  
+            this.errorMsg.set("User already exists");
+            this.isLoading.set(false);
+          }
+          else {
+            this.authService.registerApi(this.registerForm.value).subscribe({
+              next: (response) => {
+                console.log(response);
+                this.isLoading.set(false);
+                this.navigateToLogin();
+              },
+              error: (err) => {
+                console.error(err);
+                this.isLoading.set(false);
+                const message = err.error?.message || err.message || "An unexpected error occurred. Please try again.";
+                this.errorMsg.set(message);
+              },
+              complete: () => {
+                console.log("Registration completed");
+              }
+            })
+          }
         },
         error: (err) => {
           console.error(err);
-          this.isLoading.set(false);
           const message = err.error?.message || err.message || "An unexpected error occurred. Please try again.";
           this.errorMsg.set(message);
-        },
-        complete: () => {
-          console.log("Registration completed");
         }
-
-
       })
+
+      // this.authService.registerApi(this.registerForm.value).subscribe({
+      //   next: (response) => {
+      //     console.log(response);
+      //     this.isLoading.set(false);
+      //     this.navigateToLogin();
+      //   },
+      //   error: (err) => {
+      //     console.error(err);
+      //     this.isLoading.set(false);
+      //     const message = err.error?.message || err.message || "An unexpected error occurred. Please try again.";
+      //     this.errorMsg.set(message);
+      //   },
+      //   complete: () => {
+      //     console.log("Registration completed");
+      //   }
+
+
+      // })
 
     }
     else {
