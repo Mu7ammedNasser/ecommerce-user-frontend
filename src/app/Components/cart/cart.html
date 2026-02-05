@@ -1,1 +1,45 @@
-<p>cart works!</p>
+<!-- out of stock -->
+
+@if(cartItems.length > 0) {
+
+  
+  <div class="min-h-screen bg-slate-900 text-white">
+    <main class="container mx-auto px-4 py-8">
+      <nav class="text-sm mb-6">
+        <ol class="flex items-center gap-2 text-gray-400">
+          <li><a href="" class="hover:text-white transition">Home</a></li>
+          <li>/</li>
+          <li class="text-white">Shopping Cart</li>
+        </ol>
+      </nav>
+  
+      <div class="mb-8">
+        <h1 class="text-4xl font-bold mb-2">Your Shopping Cart</h1>
+        <p class="text-gray-400">
+          You have {{ cartItems.length }} items in your cart from the latest collection.
+        </p>
+      </div>
+  
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <!-- Cart Items Section -->
+  
+        <!-- Cart Item -->
+        <app-cart-items-list
+          class="lg:col-span-2 space-y-4"
+          [cartItems]="cartItems"
+        ></app-cart-items-list>
+  
+        <!-- Order Summary Section -->
+        <div class="lg:col-span-1">
+          <app-cart-summary [cartItems]="cartItems"></app-cart-summary>
+        </div>
+      </div>
+    </main>
+  </div>
+}
+@else{
+
+  <app-cart-empty></app-cart-empty>
+
+}
+
