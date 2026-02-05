@@ -9,7 +9,8 @@ import { Profile } from './Components/profile/profile';
 import { NotFounded } from './Components/not-founded/not-founded';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  // { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', component: Register },
 
   { path: 'home', component: Home },
   { path: 'login', component: Login },
