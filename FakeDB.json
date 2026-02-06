@@ -11,12 +11,9 @@
       "confirmPassword": "123456"
     },
     {
-      "id": "25eb",
-      "firstName": "Momasdo",
-      "lastName": "User",
-      "email": "new@test.com",
-      "country": "Egypt",
-      "city": "Cairo",
+      "id": 2,
+      "fullName": "Mohammed Nasser",
+      "email": "mohammed@example.com",
       "password": "123456",
       "confirmPassword": "123456"
     },
