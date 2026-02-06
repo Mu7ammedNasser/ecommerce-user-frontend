@@ -1,11 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+@config "../tailwind.config.js";
 @import 'tailwindcss';
 
-body {
+/* body {
   background-color: #101922;
-}
-
-
-body{
-    /* background-color: #101922; */
-}
+} */
