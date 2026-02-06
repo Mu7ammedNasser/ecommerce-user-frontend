@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Inject, PLATFORM_ID } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-product-card',
@@ -10,6 +11,11 @@ import { FormsModule } from '@angular/forms';
 })
 export class ProductCard {
 
+  isBrowser: boolean;
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+    this.isBrowser = isPlatformBrowser(this.platformId);
+   
+  }
 
   cardsData  = [
   {
@@ -45,19 +51,19 @@ export class ProductCard {
 ]
 
 
-
-
-
   currentIndex = 0;
   itemsPerView = 3; // Number of cards visible at once
 
 
 ngOnInit() {
-  this.updateItemsPerView();
-  window.addEventListener('resize', () => this.updateItemsPerView());
+  if (this.isBrowser) {
+    this.updateItemsPerView();
+    window.addEventListener('resize', () => this.updateItemsPerView());
+  }
 }
 
 updateItemsPerView() {
+  if (!this.isBrowser) return;
   const width = window.innerWidth;
   if (width < 640) {
     this.itemsPerView = 1; // Mobile
