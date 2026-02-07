@@ -76,6 +76,16 @@
       "city": "Cairo",
       "password": "123123",
       "confirmPassword": "123123"
+    },
+    {
+      "id": "6e81",
+      "firstName": "Youssef",
+      "lastName": "Kassab",
+      "email": "yousefkassab75@gmail.com",
+      "country": "Egypt",
+      "city": "Cairo",
+      "password": "Hey12345",
+      "confirmPassword": "Hey12345"
     }
   ],
   "categories": [
@@ -313,7 +323,35 @@
   "orders": [
     {
       "id": "1",
-      "userId": 1,
+      "userId": "6e81",
+      "items": [
+        {
+          "productId": 1,
+          "quantity": 1,
+          "price": 45000
+        }
+      ],
+      "totalPrice": 22000,
+      "status": "processing",
+      "createdAt": "2025-02-01T12:00:00Z"
+    },
+    {
+      "id": "2",
+      "userId": "6e81",
+      "items": [
+        {
+          "productId": 2,
+          "quantity": 1,
+          "price": 45000
+        }
+      ],
+      "totalPrice": 45000,
+      "status": "delivered",
+      "createdAt": "2025-02-01T12:00:00Z"
+    },
+    {
+      "id": "3",
+      "userId": "6e81",
       "items": [
         {
           "productId": 1,
@@ -322,7 +360,35 @@
         }
       ],
       "totalPrice": 45000,
-      "status": "completed",
+      "status": "delivered",
+      "createdAt": "2025-02-01T12:00:00Z"
+    },
+    {
+      "id": "4",
+      "userId": "6e81",
+      "items": [
+        {
+          "productId": 1,
+          "quantity": 1,
+          "price": 45000
+        }
+      ],
+      "totalPrice": 45000,
+      "status": "in-transit",
+      "createdAt": "2025-02-01T12:00:00Z"
+    },
+    {
+      "id": "5",
+      "userId": "6e81",
+      "items": [
+        {
+          "productId": 1,
+          "quantity": 1,
+          "price": 45000
+        }
+      ],
+      "totalPrice": 45000,
+      "status": "in-transit",
       "createdAt": "2025-02-01T12:00:00Z"
     }
   ]

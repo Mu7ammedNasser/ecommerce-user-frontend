@@ -1,12 +1,14 @@
 <header class="bg-white dark:bg-gray-900 shadow-lg sticky top-0 z-50">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="flex h-16 items-center justify-between">
+      <!-- Logo -->
       <div class="md:flex md:items-center md:gap-12">
         <a routerLink="/" class="block text-blue-600 dark:text-blue-600 text-lg font-bold">
           VOLTIX
         </a>
       </div>
 
+      <!-- Desktop Navigation -->
       <div class="hidden md:block">
         <nav aria-label="Global">
           <ul class="flex items-center gap-6 text-sm">
@@ -18,7 +20,6 @@
                 Home
               </a>
             </li>
-
             <li>
               <a
                 routerLink="/categories"
@@ -27,7 +28,6 @@
                 Categories
               </a>
             </li>
-
             <li>
               <a
                 routerLink="/about"
@@ -36,7 +36,6 @@
                 About
               </a>
             </li>
-
             <li>
               <a
                 routerLink="/contact"
@@ -49,52 +48,64 @@
         </nav>
       </div>
 
+      <!-- Right Section: Theme, Auth & Menu -->
       <div class="flex items-center gap-4">
         <!-- Theme Toggle -->
         <app-theme-toggle></app-theme-toggle>
 
-        <!-- Cart Icon -->
-        <a
-          routerLink="/cart"
-          class="text-gray-500 hover:text-gray-700 dark:text-white dark:hover:text-white/75"
-        >
-          <i class="fa-brands fa-opencart text-xl"></i>
-        </a>
-
-        <div class="sm:flex sm:gap-4">
-          <!-- Login/Logout Button with Control Flow -->
+        <!-- Auth Controls: Always visible -->
+        <div class="flex gap-3 sm:gap-5 justify-center items-center">
           @if (!auth.userToken()) {
+            <!-- Login Button -->
             <a
               routerLink="/login"
+              (click)="closeMobileMenu()"
               class="rounded-md bg-blue-500 px-5 py-2.5 text-sm font-medium text-white shadow-sm hover:bg-blue-600 dark:hover:bg-blue-600 flex items-center gap-2"
             >
               <i class="fa-solid fa-arrow-right-to-bracket"></i>
-              Login
+              <span class="">Login</span>
+            </a>
+            <!-- Register Button -->
+            <a
+              routerLink="/register"
+              (click)="closeMobileMenu()"
+              class="hidden md:flex rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-blue-600 dark:bg-gray-800 dark:text-white dark:hover:text-white/75"
+            >
+              Register
             </a>
           } @else {
+            <!-- Cart Icon (logged in) -->
+            <button
+              routerLink="/cart"
+              (click)="closeMobileMenu()"
+              class="text-gray-700 hover:text-gray-800 dark:text-white dark:hover:text-white/75 cursor-pointer"
+            >
+              <i class="fa-brands fa-opencart text-xl"></i>
+            </button>
+
+            <!-- Logout Button -->
             <button
               (click)="logout()"
-              class="rounded-md bg-red-500 px-5 py-2.5 text-sm font-medium text-white shadow-sm hover:bg-red-600 dark:hover:bg-red-600 flex items-center gap-2"
+              class="rounded-md bg-red-500 px-2 py-2.5 sm:px-5 sm:py-2.5 text-sm font-medium text-white shadow-sm hover:bg-red-600 dark:hover:bg-red-600 flex items-center gap-2 cursor-pointer"
             >
               <i class="fa-solid fa-arrow-right-from-bracket"></i>
             </button>
-          }
 
-          <!-- Register Button with Control Flow -->
-          @if (!auth.userToken()) {
-            <div class="hidden sm:flex">
-              <a
-                routerLink="/register"
-                class="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-blue-600 dark:bg-gray-800 dark:text-white dark:hover:text-white/75"
-              >
-                Register
-              </a>
-            </div>
+            <!-- Profile Button -->
+            <button
+              routerLink="/profile"
+              (click)="closeMobileMenu()"
+              class="bg-[#258CF4] hover:bg-[#0f6ac6] w-9 h-9 rounded-full flex items-center justify-center cursor-pointer"
+            >
+              <i class="fa-solid fa-user text-white"></i>
+            </button>
           }
         </div>
 
+        <!-- Mobile Menu Toggle Button -->
         <div class="block md:hidden">
           <button
+            (click)="toggleMobileMenu()"
             class="rounded-sm bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75 dark:bg-gray-800 dark:text-white dark:hover:text-white/75"
           >
             <svg
@@ -115,5 +126,61 @@
         </div>
       </div>
     </div>
+
+    <!-- Mobile Navigation Menu -->
+    @if (mobileMenuOpen()) {
+      <nav class="md:hidden border-t border-gray-200 dark:border-gray-700 py-4">
+        <ul class="flex flex-col gap-4 text-sm">
+          <li>
+            <a
+              routerLink="/"
+              (click)="closeMobileMenu()"
+              class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+            >
+              Home
+            </a>
+          </li>
+          <li>
+            <a
+              routerLink="/categories"
+              (click)="closeMobileMenu()"
+              class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+            >
+              Categories
+            </a>
+          </li>
+          <li>
+            <a
+              routerLink="/about"
+              (click)="closeMobileMenu()"
+              class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+            >
+              About
+            </a>
+          </li>
+          <li>
+            <a
+              routerLink="/contact"
+              (click)="closeMobileMenu()"
+              class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+            >
+              Contact
+            </a>
+          </li>
+          <!-- Register Link for Mobile (not logged in) -->
+          @if (!auth.userToken()) {
+            <li class="pt-2 border-t border-gray-200 dark:border-gray-700">
+              <a
+                routerLink="/register"
+                (click)="closeMobileMenu()"
+                class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300"
+              >
+                Register
+              </a>
+            </li>
+          }
+        </ul>
+      </nav>
+    }
   </div>
 </header>
