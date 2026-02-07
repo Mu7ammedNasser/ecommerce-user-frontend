@@ -1,0 +1,79 @@
+<!-- container div  -->
+
+
+<!-- price and total order div   -->
+
+
+
+<div class="flex flex-col gap-3">
+
+    
+        <div class="border-b border-b-[#1E293B]">
+            <p class="text-[#8E9DB1] w-fit">Premium Retail Price </p>
+            <span class="font-bold text-3xl mr-3">$349.00</span>
+            <span class="line-through text-[#92A1B5] mr-3 ">$420.00</span>
+            <span class="text-[#137FEC]">save17%</span>
+        </div>
+
+        <p class="text-[#DCE0E5]">SELECT COLOR</p>
+        <div class="flex gap-2">
+
+            <!-- dark-blue -->
+            <button (click)="changeRingColor('dark-blue')" [class.ring-2]="selectedColor === 'dark-blue'"
+                [class.ring-white]="selectedColor === 'dark-blue'"
+                class="bg-[#1E3A5F] rounded-full w-12 h-12 transition-all">
+            </button>
+
+            <!-- Gray Button -->
+            <button (click)="changeRingColor('gray')" [class.ring-2]="selectedColor === 'gray'"
+                [class.ring-white]="selectedColor === 'gray'"
+                class="bg-[#94A3B8] rounded-full w-12 h-12 transition-all">
+            </button>
+
+            <!-- Blue Button -->
+            <button (click)="changeRingColor('blue')" [class.ring-2]="selectedColor === 'blue'"
+                [class.ring-white]="selectedColor === 'blue'"
+                class="bg-[#3B82F6] rounded-full w-12 h-12 transition-all">
+            </button>
+
+        </div>
+
+
+        <div class="flex gap-2">
+            <button (click)="changeSize('standard')" [ngClass]="{
+        'bg-blue-500 text-white': selectedSize === 'standard',
+        'bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-white': selectedSize !== 'standard'
+    }" class="rounded-md p-2 transition flex items-center gap-2 cursor-pointer">
+                Standard
+            </button>
+
+            <button (click)="changeSize('large')" [ngClass]="{
+        'bg-blue-500 text-white': selectedSize === 'large',
+        'bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-white': selectedSize !== 'large'
+    }" class="rounded-md p-2 transition flex items-center gap-2 cursor-pointer">
+                Large(XL)
+            </button>
+
+            <button (click)="changeSize('compact')" [ngClass]="{
+        'bg-blue-500 text-white': selectedSize === 'compact',
+        'bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-white': selectedSize !== 'compact'
+    }" class="rounded-md p-2 transition flex items-center gap-2 cursor-pointer">
+                Compact
+            </button>
+        </div>
+
+
+        <div class="flex gap-3">
+            <div class="bg-[#1E293B] rounded-md w-fit   flex items-center justify-between gap-6 p-2">
+                <button (click)="decreaseCount()" class="hover:cursor-pointer text-2xl">-</button>
+                <span>{{counter}}</span>
+                <button (click)="increaseCount()" class="hover:cursor-pointer text-2xl">+</button>
+            </div>
+
+            <button
+                class="bg-[#137FEC] text-[#FFFFFF] rounded-md flex items-center w-fit px-4 py-2 hover:cursor-pointer hover:bg-blue-600 dark:hover:bg-blue-600"><i
+                    class="fa-solid fa-cart-shopping"></i> ADD TO ORDER</button>
+        </div>
+
+    
+</div>
