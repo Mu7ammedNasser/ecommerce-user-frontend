@@ -2,7 +2,7 @@
   <div class="flex flex-col lg:flex-row gap-6 lg:gap-8">
     <!-- Sidebar -->
     <aside class="w-full lg:w-64 xl:w-72 flex-shrink-0">
-      <div class="lg:sticky lg:top-8">
+      <div class="lg:sticky lg:top-24">
         <app-side-bar></app-side-bar>
       </div>
     </aside>
@@ -11,14 +11,16 @@
     <main class="flex-1 min-w-0">
       <section class="space-y-6">
         <!-- Category Title -->
-        <div class="pb-4  dark:border-slate-700">
+        <div class="pb-4 dark:border-slate-700">
           <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 dark:text-white">
             {{ CategoryTitle }}
           </h1>
         </div>
 
         <!-- Products Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4 sm:gap-5 lg:gap-6">
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4 sm:gap-5 lg:gap-6"
+        >
           @for (product of filteredProducts; track product.id) {
             <app-products [product]="product"></app-products>
           }
@@ -28,8 +30,12 @@
         @if (filteredProducts.length === 0) {
           <div class="flex flex-col items-center justify-center py-16 sm:py-20 lg:py-24">
             <div class="text-center space-y-4">
-              <div class="w-16 h-16 sm:w-20 sm:h-20 mx-auto bg-slate-100 dark:bg-slate-800 rounded-full flex items-center justify-center">
-                <i class="fa-solid fa-box-open text-3xl sm:text-4xl text-slate-400 dark:text-slate-500"></i>
+              <div
+                class="w-16 h-16 sm:w-20 sm:h-20 mx-auto bg-slate-100 dark:bg-slate-800 rounded-full flex items-center justify-center"
+              >
+                <i
+                  class="fa-solid fa-box-open text-3xl sm:text-4xl text-slate-400 dark:text-slate-500"
+                ></i>
               </div>
               <h3 class="text-lg sm:text-xl font-semibold text-slate-700 dark:text-slate-300">
                 No products found

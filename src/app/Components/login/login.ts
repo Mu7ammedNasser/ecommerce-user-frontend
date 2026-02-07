@@ -31,7 +31,7 @@ export class Login {
           this.isLoading.set(false);
           if (user) {
             console.log('Login successful', user);
-            localStorage.setItem('user', JSON.stringify(user));
+            this.authService.setUser(JSON.stringify(user));
             this.router.navigate(['/home']);
           } else {
             this.errorMsg.set("Invalid email or password.");
