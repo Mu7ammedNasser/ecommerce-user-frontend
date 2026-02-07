@@ -11,7 +11,7 @@
       "confirmPassword": "123456"
     },
     {
-      "id": 2,
+      "id": "2",
       "fullName": "Mohammed Nasser",
       "email": "mohammed@example.com",
       "password": "123456",
@@ -53,6 +53,26 @@
       "lastName": "fathi",
       "email": "test@test.com",
       "country": "UAE",
+      "city": "Cairo",
+      "password": "123123",
+      "confirmPassword": "123123"
+    },
+    {
+      "id": "b1bb",
+      "firstName": "muhammed",
+      "lastName": "refaat",
+      "email": "muhammednasserrefaat@gmail.com",
+      "country": "Egypt",
+      "city": "Cairo",
+      "password": "123123",
+      "confirmPassword": "123123"
+    },
+    {
+      "id": "e39c",
+      "firstName": "muhammed",
+      "lastName": "refaat",
+      "email": "muhammednasserrefaat1@gmail.com",
+      "country": "Egypt",
       "city": "Cairo",
       "password": "123123",
       "confirmPassword": "123123"
