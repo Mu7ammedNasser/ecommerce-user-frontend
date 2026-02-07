@@ -13,7 +13,7 @@
         <!-- Category Title -->
         <div class="pb-4 dark:border-slate-700">
           <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 dark:text-white">
-            {{ CategoryTitle }}
+            {{ CategoryTitle() }}
           </h1>
         </div>
 
@@ -21,7 +21,7 @@
         <div
           class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4 sm:gap-5 lg:gap-6"
         >
-          @for (product of filteredProducts; track product.id) {
+          @for (product of filteredProducts(); track product.id) {
             <app-products [product]="product"></app-products>
           }
         </div>
