@@ -34,11 +34,15 @@ export class Auth {
     }
   }
 
+  updateUser(id: string, data: any) {
+    return this.httpClient.put(`http://localhost:3000/users/${id}`, data);
+  }
+
   registerApi(data: object): Observable<any> {
-    return this.httpClient.post("http://localhost:3000/users", data);
+    return this.httpClient.post('http://localhost:3000/users', data);
   }
 
   loginApi(): Observable<any> {
-    return this.httpClient.get("http://localhost:3000/users");
+    return this.httpClient.get('http://localhost:3000/users');
   }
 }

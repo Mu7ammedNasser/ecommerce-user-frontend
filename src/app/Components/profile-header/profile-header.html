@@ -1,5 +1,5 @@
 <div
-  class="flex flex-col md:flex-row justify-between items-start md:items-center p-3 md:p-5 gap-4 md:gap-8 bg-slate-800 text-white rounded-2xl mb-6 border border-slate-700 hover:border-slate-600 transition"
+  class="flex flex-col md:flex-row justify-between items-start md:items-center p-3 md:p-5 gap-4 md:gap-8 bg-white dark:bg-slate-800 text-gray-900 dark:text-white rounded-2xl mb-6 border border-gray-200 dark:border-slate-700 hover:border-gray-300 dark:hover:border-slate-600 transition shadow-md"
 >
   <div class="flex gap-3 md:gap-5 justify-center items-center">
     <div class="w-15 md:w-22 rounded-full bg-gray-300 overflow-hidden">
@@ -14,15 +14,17 @@
         {{ user()?.firstName }} {{ user()?.lastName }}
       </p>
       <p
-        class="text-[#494949] bg-[#bfbfbf] p-1 rounded-lg text-[10px] md:text-[14px] flex items-center gap-1"
+        class="text-gray-600 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 p-1 rounded-lg text-[10px] md:text-[14px] flex items-center gap-1"
       >
-        <i class="fa-solid fa-calendar"></i> member since {{ user()?.createdAt | date: 'shortDate' }}
+        <i class="fa-solid fa-calendar"></i> member since
+        {{ user()?.createdAt | date: 'shortDate' }}
       </p>
     </div>
   </div>
 
   <button
-    class="bg-[#137fec] text-[12px] md:text-[16px] p-1.5 md:p-2.5 rounded-md font-bold hover:bg-[#0f6ac6] flex items-center gap-1 cursor-pointer"
+    (click)="onEdit()"
+    class="bg-[#137fec] text-[12px] md:text-[16px] p-1.5 md:p-2.5 rounded-md font-bold hover:bg-[#0f6ac6] flex items-center gap-1 cursor-pointer text-white"
   >
     <i class="fa-solid fa-pen"></i> Edit Profile
   </button>

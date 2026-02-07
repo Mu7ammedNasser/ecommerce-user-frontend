@@ -85,7 +85,8 @@
       "country": "Egypt",
       "city": "Cairo",
       "password": "Hey12345",
-      "confirmPassword": "Hey12345"
+      "confirmPassword": "Hey12345",
+      "phone": "01287044335"
     }
   ],
   "categories": [

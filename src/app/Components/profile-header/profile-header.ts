@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, input } from '@angular/core';
+import { Component, EventEmitter, input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-profile-header',
@@ -9,4 +9,10 @@ import { Component, input } from '@angular/core';
 })
 export class ProfileHeader {
   user = input<any>(null);
+
+  @Output() editClicked = new EventEmitter<void>();
+
+  onEdit() {
+    this.editClicked.emit();
+  }
 }
