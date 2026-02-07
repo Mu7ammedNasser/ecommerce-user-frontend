@@ -1,5 +1,5 @@
 <div
-  class="flex flex-col md:flex-row justify-between items-start md:items-center p-3 md:p-5 gap-4 md:gap-8 bg-[#0F172A] text-white rounded-2xl mb-6 border border-gray-700"
+  class="flex flex-col md:flex-row justify-between items-start md:items-center p-3 md:p-5 gap-4 md:gap-8 bg-slate-800 text-white rounded-2xl mb-6 border border-slate-700 hover:border-slate-600 transition"
 >
   <div class="flex gap-3 md:gap-5 justify-center items-center">
     <div class="w-15 md:w-22 rounded-full bg-gray-300 overflow-hidden">
@@ -10,12 +10,13 @@
       />
     </div>
     <div class="flex flex-col gap-1">
-      <p class="text-[14px] md:text-2xl font-bold">Youssef Kassab</p>
-      <p class="text-[#91A0B5] text-[12px] md:text-[16px]">yousefkassab75@gmail.com</p>
+      <p class="text-[14px] md:text-2xl font-bold">
+        {{ user()?.firstName }} {{ user()?.lastName }}
+      </p>
       <p
         class="text-[#494949] bg-[#bfbfbf] p-1 rounded-lg text-[10px] md:text-[14px] flex items-center gap-1"
       >
-        <i class="fa-solid fa-calendar"></i> member since Jan 2026
+        <i class="fa-solid fa-calendar"></i> member since {{ user()?.createdAt | date: 'shortDate' }}
       </p>
     </div>
   </div>
