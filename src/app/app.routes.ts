@@ -10,10 +10,12 @@ import { Profile } from './Components/profile/profile';
 import { NotFounded } from './Components/not-founded/not-founded';
 import { About } from './Components/about/about';
 import { Contact } from './Components/contact/contact';
+import { ProductDetails } from './Components/product-details/product-details';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: Home },
+  { path: 'product-details/:id', component: ProductDetails,},
   { path: 'login', component: Login },
   { path: 'register', component: Register },
   { path: 'profile', component: Profile },

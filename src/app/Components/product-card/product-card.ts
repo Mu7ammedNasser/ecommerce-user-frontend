@@ -2,10 +2,11 @@ import { CommonModule } from '@angular/common';
 import { Component, Inject, PLATFORM_ID } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { isPlatformBrowser } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-product-card',
-  imports: [FormsModule,CommonModule],
+  imports: [FormsModule,CommonModule,RouterLink],
   templateUrl: './product-card.html',
   styleUrl: './product-card.css',
 })
