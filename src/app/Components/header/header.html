@@ -9,44 +9,46 @@
       </div>
 
       <!-- Desktop Navigation -->
-      <div class="hidden md:block">
-        <nav aria-label="Global">
-          <ul class="flex items-center gap-6 text-sm">
-            <li>
-              <a
-                routerLink="/"
-                class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-              >
-                Home
-              </a>
-            </li>
-            <li>
-              <a
-                routerLink="/categories"
-                class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-              >
-                Categories
-              </a>
-            </li>
-            <li>
-              <a
-                routerLink="/about"
-                class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-              >
-                About
-              </a>
-            </li>
-            <li>
-              <a
-                routerLink="/contact"
-                class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
-              >
-                Contact
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </div>
+      @if (auth.userToken()) {
+        <div class="hidden md:block">
+          <nav aria-label="Global">
+            <ul class="flex items-center gap-6 text-sm">
+              <li>
+                <a
+                  routerLink="/"
+                  class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+                >
+                  Home
+                </a>
+              </li>
+              <li>
+                <a
+                  routerLink="/categories"
+                  class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+                >
+                  Categories
+                </a>
+              </li>
+              <li>
+                <a
+                  routerLink="/about"
+                  class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+                >
+                  About
+                </a>
+              </li>
+              <li>
+                <a
+                  routerLink="/contact"
+                  class="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
+                >
+                  Contact
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      }
 
       <!-- Right Section: Theme, Auth & Menu -->
       <div class="flex items-center gap-4">
