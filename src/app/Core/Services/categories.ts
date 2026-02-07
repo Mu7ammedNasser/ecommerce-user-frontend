@@ -7,5 +7,19 @@ import { Product } from '../Interfaces/iproduct';
   providedIn: 'root',
 })
 export class Categories {
-  
+  private readonly baseUrl = 'http://localhost:3000/products';
+
+  constructor(private http: HttpClient) {}
+
+  getAllProducts(): Observable<Product[]> {
+    return this.http.get<Product[]>(this.baseUrl);
+  }
+
+  getProductsByCategory(slug: string): Observable<Product[]> {
+    return this.http.get<Product[]>(`${this.baseUrl}?category=${slug}`);
+  }
+
+  getProductById(id: number): Observable<Product> {
+    return this.http.get<Product>(`${this.baseUrl}/${id}`);
+  }
 }
