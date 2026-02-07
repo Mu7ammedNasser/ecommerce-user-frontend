@@ -1,7 +1,7 @@
 <!--  -->
 <div class="my-3 mx-4 md:mx-6">
   <!-- profile data component-->
-  <app-profile-header [user]="user()"></app-profile-header>
+  <app-profile-header [user]="user()" (editClicked)="openEditModal()"></app-profile-header>
 
   <!-- contact and order history -->
   <div class="flex flex-col lg:flex-row gap-6">
@@ -17,3 +17,132 @@
     </div>
   </div>
 </div>
+
+<dialog
+  #dialogRef
+  class="w-[90%] max-w-sm sm:max-w-md md:max-w-2xl rounded-xl bg-white dark:bg-gray-900 p-4 sm:p-6 shadow-xl outline outline-gray-200 dark:outline-white/10 backdrop:bg-black/60 m-auto"
+>
+  <div class="w-full">
+    <div class="flex items-center gap-2 mb-4">
+      <i class="fa-solid fa-pen text-gray-900 dark:text-white text-xl"></i>
+      <h3 class="text-lg sm:text-xl md:text-2xl font-semibold text-gray-900 dark:text-white">
+        Edit Profile
+      </h3>
+    </div>
+
+    <!-- GLOBAL ERROR MESSAGE -->
+    @if (errorMsg()) {
+      <p class="text-red-600 dark:text-red-400 mb-2 text-sm">{{ errorMsg() }}</p>
+    }
+
+    <form [formGroup]="profileForm" (ngSubmit)="saveProfile()" class="space-y-4">
+      <!-- First Name -->
+      <div>
+        <input
+          type="text"
+          placeholder="First Name"
+          formControlName="firstName"
+          class="w-full rounded-md bg-gray-50 dark:bg-white/10 px-3 py-2 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 outline-none border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-500"
+        />
+        @if (profileForm.get('firstName')?.invalid && profileForm.get('firstName')?.touched) {
+          <p class="text-red-600 dark:text-red-400 text-sm mt-1">
+            First Name: only letters, spaces, hyphens & apostrophes (3-20 characters)
+          </p>
+        }
+      </div>
+
+      <!-- Last Name -->
+      <div>
+        <input
+          type="text"
+          placeholder="Last Name"
+          formControlName="lastName"
+          class="w-full rounded-md bg-gray-50 dark:bg-white/10 px-3 py-2 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 outline-none border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-500"
+        />
+        @if (profileForm.get('lastName')?.invalid && profileForm.get('lastName')?.touched) {
+          <p class="text-red-600 dark:text-red-400 text-sm mt-1">
+            Last Name: only letters, spaces, hyphens & apostrophes (3-20 characters)
+          </p>
+        }
+      </div>
+
+      <!-- Email -->
+      <div>
+        <input
+          type="email"
+          placeholder="Email"
+          formControlName="email"
+          class="w-full rounded-md bg-gray-50 dark:bg-white/10 px-3 py-2 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 outline-none border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-500"
+        />
+        @if (profileForm.get('email')?.invalid && profileForm.get('email')?.touched) {
+          <p class="text-red-600 dark:text-red-400 text-sm mt-1">Enter a valid email address</p>
+        }
+      </div>
+
+      <!-- Phone -->
+      <div>
+        <input
+          type="text"
+          placeholder="Phone"
+          formControlName="phone"
+          class="w-full rounded-md bg-gray-50 dark:bg-white/10 px-3 py-2 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 outline-none border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-500"
+        />
+        @if (profileForm.get('phone')?.invalid && profileForm.get('phone')?.touched) {
+          <p class="text-red-600 dark:text-red-400 text-sm mt-1">
+            Phone: only digits (10-15 digits, optional +)
+          </p>
+        }
+      </div>
+
+      <!-- Country -->
+      <div>
+        <input
+          type="text"
+          placeholder="Country"
+          formControlName="country"
+          class="w-full rounded-md bg-gray-50 dark:bg-white/10 px-3 py-2 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 outline-none border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-500"
+        />
+        @if (profileForm.get('country')?.invalid && profileForm.get('country')?.touched) {
+          <p class="text-red-600 dark:text-red-400 text-sm mt-1">
+            Country: only letters, spaces, hyphens & apostrophes (3-30 characters)
+          </p>
+        }
+      </div>
+
+      <!-- City -->
+      <div>
+        <input
+          type="text"
+          placeholder="City"
+          formControlName="city"
+          class="w-full rounded-md bg-gray-50 dark:bg-white/10 px-3 py-2 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 outline-none border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-blue-500"
+        />
+        @if (profileForm.get('city')?.invalid && profileForm.get('city')?.touched) {
+          <p class="text-red-600 dark:text-red-400 text-sm mt-1">
+            City: only letters, spaces, hyphens & apostrophes (3-30 characters)
+          </p>
+        }
+      </div>
+
+      <!-- BUTTONS -->
+      <div class="flex justify-end gap-3 pt-4">
+        <button
+          type="button"
+          (click)="closeDialog()"
+          class="rounded-md bg-gray-200 dark:bg-white/10 px-4 py-2 text-sm text-gray-900 dark:text-white hover:bg-gray-300 dark:hover:bg-white/20"
+        >
+          Cancel
+        </button>
+
+        <button
+          type="submit"
+          [disabled]="isLoading()"
+          class="rounded-md bg-blue-600 dark:bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-500 dark:hover:bg-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
+        >
+          <span *ngIf="isLoading()">Updating...</span>
+          <span *ngIf="!isLoading()">Save Changes</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</dialog>

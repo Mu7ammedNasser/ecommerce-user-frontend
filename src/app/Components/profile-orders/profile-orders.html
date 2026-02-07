@@ -1,15 +1,15 @@
 <div
-  class="relative overflow-x-auto bg-slate-800 shadow-xs rounded-2xl border border-slate-700 hover:border-slate-600 transition w-full max-h-100"
+  class="relative overflow-x-auto bg-white dark:bg-slate-800 shadow-md rounded-2xl border border-gray-200 dark:border-slate-700 hover:border-gray-300 dark:hover:border-slate-600 transition w-full max-h-100"
 >
-  <table class="w-full text-[12px] md:text-sm text-left text-white">
-    <caption class="p-4 md:p-5 text-[14px] md:text-lg font-medium text-left text-heading">
+  <table class="w-full text-[12px] md:text-sm text-left text-gray-900 dark:text-white">
+    <caption class="p-4 md:p-5 text-[14px] md:text-lg font-medium text-left">
       Order History
-      <p class="mt-1 text-[10px] md:text-sm font-normal text-body text-[#92A1B6]">
+      <p class="mt-1 text-[10px] md:text-sm font-normal text-gray-500 dark:text-gray-300">
         Track your past purchases.
       </p>
     </caption>
     <thead
-      class="text-[12px] md:text-sm bg-[#162033] border-b border-t border-gray-700 text-[#92A1B6]"
+      class="text-[12px] md:text-sm bg-gray-50 dark:bg-[#162033] border-b border-t border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300"
     >
       <tr>
         <th scope="col" class="px-4 md:px-6 py-2 md:py-3 font-medium">Order ID</th>
@@ -19,49 +19,42 @@
       </tr>
     </thead>
     <tbody>
-      <!-- Loading State -->
-      @if (isLoading()) {
-        <tr class="border-b border-gray-700">
-          <td colspan="4" class="px-4 md:px-6 py-4 text-center text-[#92A1B6]">
-            Loading orders...
-          </td>
-        </tr>
-      }
+      <tr *ngIf="isLoading()" class="border-b border-gray-200 dark:border-slate-700">
+        <td colspan="4" class="px-4 md:px-6 py-4 text-center text-gray-500 dark:text-gray-300">
+          Loading orders...
+        </td>
+      </tr>
 
-      <!-- Error State -->
-      @if (!isLoading() && error()) {
-        <tr class="border-b border-gray-700">
-          <td colspan="4" class="px-4 md:px-6 py-4 text-center text-red-500">
-            {{ error() }}
-          </td>
-        </tr>
-      }
+      <tr *ngIf="!isLoading() && error()" class="border-b border-gray-200 dark:border-slate-700">
+        <td colspan="4" class="px-4 md:px-6 py-4 text-center text-red-500">
+          {{ error() }}
+        </td>
+      </tr>
 
-      <!-- No Orders State -->
-      @if (!isLoading() && !error() && orders().length === 0) {
-        <tr class="border-b border-gray-700">
-          <td colspan="4" class="px-4 md:px-6 py-4 text-center text-[#92A1B6]">No orders found</td>
-        </tr>
-      }
+      <tr
+        *ngIf="!isLoading() && !error() && orders()?.length === 0"
+        class="border-b border-gray-200 dark:border-slate-700"
+      >
+        <td colspan="4" class="px-4 md:px-6 py-4 text-center text-gray-500 dark:text-gray-300">
+          No orders found
+        </td>
+      </tr>
 
-      <!-- Orders List -->
-      @for (order of orders(); track order.id) {
-        <tr class="border-b border-gray-700">
+      <ng-container *ngIf="!isLoading() && !error() && orders().length > 0">
+        <tr *ngFor="let order of orders()" class="border-b border-gray-200 dark:border-slate-700">
           <th
             scope="row"
             class="px-4 md:px-6 py-2 md:py-4 font-medium text-heading whitespace-nowrap"
           >
             #ORD-{{ order.id }}
           </th>
-          <td class="px-4 md:px-6 py-2 md:py-4">
-            {{ order.createdAt | date: 'dd MMM yyyy' }}
-          </td>
+          <td class="px-4 md:px-6 py-2 md:py-4">{{ order.createdAt | date: 'dd MMM yyyy' }}</td>
           <td class="px-4 md:px-6 py-2 md:py-4">${{ order.totalPrice }}</td>
           <td class="px-4 md:px-6 py-2 md:py-4">
             <p [ngClass]="order.status">• {{ order.status | titlecase }}</p>
           </td>
         </tr>
-      }
+      </ng-container>
     </tbody>
   </table>
 </div>
