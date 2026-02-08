@@ -35,8 +35,8 @@ export class CartService {
   }
 
 
- updateCart(cartId: string, items: any[]) {
-  return this.http.put(`${this.BaseUrl}/cart/${cartId}`, { items });
+ updateCart(cartId: string, cartData: any) {
+  return this.http.put(`${this.BaseUrl}/cart/${cartId}`, cartData);
 }
 
   deleteCart(cartId: string) {

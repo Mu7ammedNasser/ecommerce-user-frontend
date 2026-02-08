@@ -127,11 +127,12 @@ export class Cart implements OnInit {
 
     console.log('Updated items:', updatedItems); // Debug log
 
-    // Update backend
-    this.service.updateCart(currentCart.id, updatedItems).subscribe({
+    // Update backend with entire cart object to preserve all properties (including userId)
+    const updatedCart = { ...currentCart, items: updatedItems };
+    this.service.updateCart(currentCart.id, updatedCart).subscribe({
       next: (response) => {
         // Update local signal after successful backend update
-        this.cart.set({ ...currentCart, items: updatedItems });
+        this.cart.set(updatedCart);
         console.log('Cart updated successfully', response);
       },
       error: (err) => {
@@ -153,11 +154,12 @@ export class Cart implements OnInit {
 
     console.log('Updated items after removal:', updatedItems); // Debug log
 
-    // Update backend
-    this.service.updateCart(currentCart.id, updatedItems).subscribe({
+    // Update backend with entire cart object to preserve all properties (including userId)
+    const updatedCart = { ...currentCart, items: updatedItems };
+    this.service.updateCart(currentCart.id, updatedCart).subscribe({
       next: (response) => {
         // Update local signal after successful backend update
-        this.cart.set({ ...currentCart, items: updatedItems });
+        this.cart.set(updatedCart);
         console.log('Item removed successfully', response);
       },
       error: (err) => {
