@@ -4,9 +4,9 @@
     
         <div class="border-b border-b-[#1E293B]">
             <p class="text-[#8E9DB1] w-fit">Premium Retail Price </p>
-            <span class="font-bold text-3xl mr-3">$349.00</span>
-            <span class="line-through text-[#92A1B5] mr-3 ">$420.00</span>
-            <span class="text-[#137FEC]">save17%</span>
+            <span class="font-bold text-3xl mr-3">${{myProduct().price}}</span>
+            <span class="line-through text-[#92A1B5] mr-3 ">${{myProduct().originalPrice}}</span>
+            <span class="text-[#137FEC]">Save {{savingPercent()}}%</span>
         </div>
 
         <p class="text-[#DCE0E5]">SELECT COLOR</p>
@@ -65,8 +65,8 @@
             </div>
 
             <button
-                class="bg-[#137FEC] text-[#FFFFFF] rounded-md flex items-center w-fit px-4 py-2 hover:cursor-pointer hover:bg-blue-600 dark:hover:bg-blue-600"><i
-                    class="fa-solid fa-cart-shopping"></i> ADD TO ORDER</button>
+                class="bg-[#137FEC] text-[#FFFFFF] rounded-md flex items-center w-fit px-4 py-2 hover:cursor-pointer hover:bg-blue-600 dark:hover:bg-blue-600" routerLink="/cart"><i
+                    class="fa-solid fa-cart-shopping"></i> ADD TO CART</button>
         </div>
 
     

@@ -1,11 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, Input, Signal, computed } from '@angular/core';
+import { Product } from '../../Core/Interfaces/iproduct';
 
 @Component({
   selector: 'app-product-details-specification',
-  imports: [],
   templateUrl: './product-details-specification.html',
   styleUrl: './product-details-specification.css',
 })
 export class ProductDetailsSpecification {
+
+  // ✅ receive the signal — DO NOT create one
+  @Input() myProduct!: Signal<Product>;
+
+  // ✅ derive data reactively
+  description = computed(() =>
+    this.myProduct().description.split(',')
+  );
 
 }

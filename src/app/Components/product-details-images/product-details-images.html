@@ -1,1 +1,14 @@
-<p>product-details-images works!</p>
+<div>
+
+    <div>
+        <img class="w-150 h-100 rounded-md" [src]="baseImg()" alt="">
+    </div>
+
+    <div class="flex gap-2 mt-4">
+        <img class="w-40 h-25 rounded-md" [src]="myProduct().images[1]" alt="img1" (click)="changeImg($event)">
+        <img class="w-40 h-25 rounded-md" [src]="myProduct().images[2]" alt="img2" (click)="changeImg($event)">
+        <img class="w-40 h-25 rounded-md" [src]="myProduct().images[3]" alt="img3" (click)="changeImg($event)">
+        <img class="w-40 h-25 rounded-md" [src]="myProduct().images[4]" alt="img4" (click)="changeImg($event)">
+    </div>
+
+</div>
