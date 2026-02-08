@@ -1,8 +1,16 @@
-<!-- out of stock -->
+<!-- out stock , hover pointer, photo ,(done) confirmaation for removing item -->
 
-@if(cartItems.length > 0) {
 
-  
+@if(isLoading()) {
+  <!-- Loading State -->
+  <div class="min-h-screen bg-slate-900 text-white flex items-center justify-center">
+    <div class="text-center">
+      <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-white mx-auto mb-4"></div>
+      <p class="text-gray-400">Loading your cart...</p>
+    </div>
+  </div>
+}
+@else if(cartItemsWithDetails().length > 0) {
   <div class="min-h-screen bg-slate-900 text-white">
     <main class="container mx-auto px-4 py-8">
       <nav class="text-sm mb-6">
@@ -16,30 +24,25 @@
       <div class="mb-8">
         <h1 class="text-4xl font-bold mb-2">Your Shopping Cart</h1>
         <p class="text-gray-400">
-          You have {{ cartItems.length }} items in your cart from the latest collection.
+          You have {{ cartItemsWithDetails().length }} items in your cart from the latest collection.
         </p>
       </div>
   
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <!-- Cart Items Section -->
-  
-        <!-- Cart Item -->
         <app-cart-items-list
           class="lg:col-span-2 space-y-4"
-          [cartItems]="cartItems"
+          [cartItems]="cartItemsWithDetails()"
+          (quantityChange)="onQuantityChange($event)"
+          (itemRemove)="onItemRemove($event)"
         ></app-cart-items-list>
   
-        <!-- Order Summary Section -->
         <div class="lg:col-span-1">
-          <app-cart-summary [cartItems]="cartItems"></app-cart-summary>
+          <app-cart-summary [cartItems]="cartItemsWithDetails()"></app-cart-summary>
         </div>
       </div>
     </main>
   </div>
 }
-@else{
-
+@else {
   <app-cart-empty></app-cart-empty>
-
 }
-
