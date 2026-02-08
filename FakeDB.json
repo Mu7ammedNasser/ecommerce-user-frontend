@@ -87,6 +87,16 @@
       "password": "Hey12345",
       "confirmPassword": "Hey12345",
       "phone": "01287044335"
+    },
+    {
+      "id": "4665",
+      "firstName": "basel",
+      "lastName": "ashraf",
+      "email": "basel@gmail.com",
+      "country": "Egypt",
+      "city": "Cairo",
+      "password": "123456",
+      "confirmPassword": "123456"
     }
   ],
   "categories": [
