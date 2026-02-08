@@ -1,84 +1,54 @@
 import { CommonModule } from '@angular/common';
-import { Component, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, Inject, PLATFORM_ID, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { isPlatformBrowser } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { Products } from '../../Core/Services/products';
+import { Product } from '../../Core/Interfaces/iproduct';
 
 @Component({
   selector: 'app-product-card',
-  imports: [FormsModule,CommonModule,RouterLink],
+  imports: [FormsModule, CommonModule, RouterLink],
   templateUrl: './product-card.html',
   styleUrl: './product-card.css',
 })
 export class ProductCard {
-
+  allProduct = signal<Product[]>([]);
   isBrowser: boolean;
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+  Array = Array;
+  
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: Object, 
+    private productService: Products
+  ) {
     this.isBrowser = isPlatformBrowser(this.platformId);
-   
   }
-
-  cardsData  = [
-  {
-    "name": "Wireless Headphones",
-    "price": 1200,
-    "description": "High-quality wireless headphones with noise cancellation and long battery life."
-  },
-  {
-    "name": "Smart Watch",
-    "price": 1800,
-    "description": "Modern smart watch with heart rate monitoring and fitness tracking."
-  },
-  {
-    "name": "Gaming Mouse",
-    "price": 650,
-    "description": "Ergonomic gaming mouse with adjustable DPI and RGB lighting."
-  },
-  {
-    "name": "Mechanical Keyboard",
-    "price": 2200,
-    "description": "Mechanical keyboard with tactile switches and durable build quality."
-  },
-  {
-    "name": "Portable Speaker",
-    "price": 950,
-    "description": "Compact portable speaker with powerful sound and Bluetooth support."
-  },
-  {
-    "name": "Laptop Stand",
-    "price": 400,
-    "description": "Adjustable laptop stand for better posture and improved airflow."
-  }
-]
-
 
   currentIndex = 0;
-  itemsPerView = 3; // Number of cards visible at once
+  itemsPerView = 3;
 
-
-ngOnInit() {
-  if (this.isBrowser) {
-    this.updateItemsPerView();
-    window.addEventListener('resize', () => this.updateItemsPerView());
+  ngOnInit() {
+    if (this.isBrowser) {
+      this.updateItemsPerView();
+      window.addEventListener('resize', () => this.updateItemsPerView());
+    }
+    
+    this.productService.getAllProducts().subscribe({
+      next: (products) => {
+        this.allProduct.set(products);
+      },
+      error: (err) => {
+        console.error('Error fetching products:', err);
+      }
+    });
   }
-}
 
-updateItemsPerView() {
-  if (!this.isBrowser) return;
-  const width = window.innerWidth;
-  if (width < 640) {
-    this.itemsPerView = 1; // Mobile
-  } else if (width < 1024) {
-    this.itemsPerView = 2; // Tablet
-  } else {
-    this.itemsPerView = 3; // Desktop
-  }
-}
-
-  get visibleCards() {
-    const start = this.currentIndex;
-    const end = start + this.itemsPerView;
-    return this.cardsData.slice(start, end);
+  // Get first line of description
+  getFirstLine(description: string): string {
+    if (!description) return '';
+    const firstLine = description.split('.')[0]; // Split by period
+    return firstLine + (firstLine.length < description.length ? '...' : '');
   }
 
   get canGoPrev() {
@@ -86,7 +56,7 @@ updateItemsPerView() {
   }
 
   get canGoNext() {
-    return this.currentIndex < this.cardsData.length - this.itemsPerView;
+    return this.currentIndex < this.allProduct().length - this.itemsPerView;
   }
 
   prev() {
@@ -106,10 +76,27 @@ updateItemsPerView() {
   }
 
   get totalDots() {
-    return Math.ceil(this.cardsData.length - this.itemsPerView + 1);
+    const products = this.allProduct();
+    if (products.length === 0) return 0;
+    return Math.max(1, products.length - this.itemsPerView + 1);
+  }
+
+  updateItemsPerView() {
+    if (!this.isBrowser) return;
+    
+    const width = window.innerWidth;
+    if (width < 640) {
+      this.itemsPerView = 1;
+    } else if (width < 1024) {
+      this.itemsPerView = 2;
+    } else {
+      this.itemsPerView = 3;
+    }
+  }
+
+  ngOnDestroy() {
+    if (this.isBrowser) {
+      window.removeEventListener('resize', () => this.updateItemsPerView());
+    }
   }
 }
-
-
-
-

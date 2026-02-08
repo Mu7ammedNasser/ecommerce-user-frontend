@@ -19,7 +19,5 @@ export class Categories {
     return this.http.get<Product[]>(`${this.baseUrl}?category=${slug}`);
   }
 
-  getProductById(id: number): Observable<Product> {
-    return this.http.get<Product>(`${this.baseUrl}/${id}`);
-  }
+
 }

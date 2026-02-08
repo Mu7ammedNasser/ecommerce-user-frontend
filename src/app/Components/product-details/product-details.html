@@ -1,28 +1,28 @@
-<div class="bg-[#0F1419] min-h-screen p-6">
+<div class="bg-[#0F1419] min-h-screen p-4 sm:p-6">
     <!-- Product Details Container -->
     <div class="max-w-7xl mx-auto">
-        
+
         <!-- Header (Full Width) -->
-        <app-product-details-header></app-product-details-header>
-        
-        <!-- Main Content: 2 Column Layout -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-6">
-            
-            <!-- LEFT COLUMN: Product Images -->
-            <div class="w-full">
-                <app-product-details-images></app-product-details-images>
+        <app-product-details-header [myProduct]="myProduct"></app-product-details-header>
+
+        <!-- Main Content: Responsive Layout -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 mt-4 sm:mt-6">
+
+            <!-- LEFT COLUMN: Product Images (Hidden on mobile/tablet, shown on desktop) -->
+            <div class="hidden lg:block w-full">
+                <app-product-details-images [myProduct]="myProduct"></app-product-details-images>
             </div>
-            
+
             <!-- RIGHT COLUMN: Product Details -->
-            <div class="w-full flex flex-col gap-6">
+            <div class="w-full flex flex-col gap-4 sm:gap-6">
                 <!-- Price, Color, Size, Add to Cart -->
-                <app-product-details-characteristics></app-product-details-characteristics>
-                
+                <app-product-details-characteristics [myProduct]="myProduct"></app-product-details-characteristics>
+
                 <!-- Core Specifications & Warranty Info -->
-                <app-product-details-specification></app-product-details-specification>
+                <app-product-details-specification [myProduct]="myProduct"></app-product-details-specification>
             </div>
-            
+
         </div>
-        
+
     </div>
 </div>
