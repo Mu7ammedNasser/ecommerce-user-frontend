@@ -123,7 +123,7 @@
   ],
   "products": [
     {
-      "id": 1,
+      "id": "1",
       "title": "MacBook Pro 16\" - M3 Max",
       "description": "Powerful laptop featuring the latest M3 Max chip, 16-inch Liquid Retina XDR display, up to 128GB unified memory, and exceptional battery life. Perfect for creative professionals and demanding workflows.",
       "category": "computers",
@@ -144,7 +144,7 @@
       "onSale": false
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "Dell XPS 15",
       "description": "Premium Windows laptop with stunning 15.6-inch OLED display, Intel Core i7 processor, NVIDIA GeForce RTX graphics, and sleek aluminum chassis. Ideal for both work and entertainment.",
       "category": "computers",
@@ -165,7 +165,7 @@
       "onSale": true
     },
     {
-      "id": 3,
+      "id": "3",
       "title": "HP Spectre x360",
       "description": "Versatile 2-in-1 convertible laptop with 360-degree hinge, touchscreen display, Intel Evo platform, and premium gem-cut design. Perfect for productivity on the go.",
       "category": "computers",
@@ -186,7 +186,7 @@
       "onSale": false
     },
     {
-      "id": 4,
+      "id": "4",
       "title": "Lenovo ThinkPad X1 Carbon",
       "description": "Business-class ultrabook with legendary ThinkPad durability, carbon fiber construction, Intel vPro processor, and military-grade tested reliability. Built for professionals.",
       "category": "computers",
@@ -207,7 +207,7 @@
       "onSale": false
     },
     {
-      "id": 5,
+      "id": "5",
       "title": "iPhone 15 Pro",
       "description": "Latest flagship iPhone with titanium design, A17 Pro chip, advanced triple camera system with 5x optical zoom, and Action button customization. Available in multiple storage options.",
       "category": "smartphones",
@@ -228,7 +228,7 @@
       "onSale": false
     },
     {
-      "id": 6,
+      "id": "6",
       "title": "Samsung Galaxy S24 Ultra",
       "description": "Ultimate Android flagship with 6.8-inch Dynamic AMOLED display, 200MP camera, S Pen integration, and Galaxy AI features. Powerhouse performance with Snapdragon 8 Gen 3 processor.",
       "category": "smartphones",
@@ -249,7 +249,7 @@
       "onSale": false
     },
     {
-      "id": 7,
+      "id": "7",
       "title": "Google Pixel 8 Pro",
       "description": "Google's flagship phone featuring Tensor G3 chip, exceptional computational photography, AI-powered features, and pure Android experience with guaranteed updates. Best-in-class camera performance.",
       "category": "smartphones",
@@ -270,7 +270,7 @@
       "onSale": false
     },
     {
-      "id": 8,
+      "id": "8",
       "title": "OnePlus 12",
       "description": "Performance flagship with Snapdragon 8 Gen 3, 120Hz AMOLED display, ultra-fast 100W charging, and Hasselblad camera collaboration. Premium specs at competitive pricing.",
       "category": "smartphones",
@@ -291,7 +291,7 @@
       "onSale": false
     },
     {
-      "id": 9,
+      "id": "9",
       "title": "Sony WH-1000XM5",
       "description": "Industry-leading wireless noise cancelling headphones with exceptional sound quality, 30-hour battery life, superior call clarity, and comfortable lightweight design. Perfect for travel and daily use.",
       "category": "sound",
@@ -312,7 +312,7 @@
       "onSale": false
     },
     {
-      "id": 10,
+      "id": "10",
       "title": "Bose QuietComfort Ultra",
       "description": "Premium wireless headphones with world-class noise cancellation, immersive spatial audio, luxurious comfort, and CustomTune technology for personalized sound. Audiophile-grade listening experience.",
       "category": "sound",
@@ -333,7 +333,7 @@
       "onSale": false
     },
     {
-      "id": 11,
+      "id": "11",
       "title": "AirPods Pro (2nd Gen)",
       "description": "Apple's premium wireless earbuds with adaptive audio, active noise cancellation, personalized spatial audio, and USB-C charging case. Seamless integration with Apple devices.",
       "category": "sound",
@@ -354,7 +354,7 @@
       "onSale": false
     },
     {
-      "id": 12,
+      "id": "12",
       "title": "JBL Charge 5 Speaker",
       "description": "Portable Bluetooth speaker with powerful JBL Pro Sound, built-in powerbank, IP67 waterproof rating, and up to 20 hours of playtime. Perfect for outdoor adventures and parties.",
       "category": "sound",
@@ -375,7 +375,7 @@
       "onSale": false
     },
     {
-      "id": 13,
+      "id": "13",
       "title": "PlayStation 5 DualSense Controller",
       "description": "Next-gen gaming controller featuring haptic feedback, adaptive triggers, built-in microphone, and immersive gaming experience. Compatible with PS5 and PC.",
       "category": "gaming-gear",
@@ -396,7 +396,7 @@
       "onSale": false
     },
     {
-      "id": 14,
+      "id": "14",
       "title": "Xbox Wireless Controller Series X",
       "description": "Refined wireless gaming controller with textured grip, hybrid D-pad, dedicated Share button, and Bluetooth connectivity. Works with Xbox Series X|S, PC, and mobile devices.",
       "category": "gaming-gear",
@@ -417,7 +417,7 @@
       "onSale": false
     },
     {
-      "id": 15,
+      "id": "15",
       "title": "Razer BlackWidow V4 Keyboard",
       "description": "Premium mechanical gaming keyboard with Razer Green switches, programmable keys, Chroma RGB lighting, and dedicated media controls. Built for competitive gaming and productivity.",
       "category": "gaming-gear",
@@ -438,7 +438,7 @@
       "onSale": false
     },
     {
-      "id": 16,
+      "id": "16",
       "title": "Logitech G Pro X Superlight Mouse",
       "description": "Ultra-lightweight wireless gaming mouse weighing under 63g, featuring HERO 25K sensor, zero-additive PTFE feet, and 70-hour battery life. Designed with and for esports pros.",
       "category": "gaming-gear",

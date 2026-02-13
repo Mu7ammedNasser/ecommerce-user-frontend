@@ -10,27 +10,42 @@ import { Product } from '../../Core/Interfaces/iproduct';
   templateUrl: './product-details-images.html',
   styleUrl: './product-details-images.css',
 })
-export class ProductDetailsImages implements OnChanges {
+export class ProductDetailsImages {
 
-  @Input() myProduct = signal({} as Product);
 
-  baseImg= signal("" as string) ;
-  tempImg= signal("" as string) ;
 
-  constructor() {}
-  ngOnChanges(changes: SimpleChanges) {
-    if (changes['myProduct'] && this.myProduct().images?.length > 0) {
-      this.baseImg.set(this.myProduct().images[0]) ;
-    }
+  myProduct = signal <Product |null >(null);
+  productID: number ;
+  baseImg = signal("" as string);
+
+  constructor(private route: ActivatedRoute, private productservic: Products) {
+    this.productID = (
+      this.route.snapshot.params['id'].replace(':', '')
+    );
+    console.log(this.myProduct());
+    
+
   }
+
+  ngOnInit() {
+    this.productservic.getProductById(this.productID).subscribe((product) => {
+      this.myProduct.set(product);
+      this.baseImg.set(product.images[0]);
+      console.log(this.baseImg());
+      
+    });
+  }
+
 
   changeImg(event: Event) {
     let imgElement = event.target as HTMLImageElement;
     let imageSrc = imgElement.src;
 
     // Swap using signals: read the current value, set the new value, then update the element
-    const previousBase = this.baseImg();
-    this.baseImg.set(imageSrc);
+    const previousBase = this.myProduct()!.images[0];
+    this.myProduct()!.images[0] = imageSrc;
     imgElement.src = previousBase;
   }
+
+
 }

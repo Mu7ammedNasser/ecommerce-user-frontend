@@ -28,8 +28,6 @@ export class ProductDetails {
     this.productservice.getProductById(this.productId).subscribe({
       next: (data) => {
         this.myProduct.set(data);
-        console.log(this.myProduct())
-
       }
     })
   }
