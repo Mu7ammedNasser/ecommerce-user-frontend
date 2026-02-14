@@ -1,39 +1,40 @@
-<div class="flex flex-col gap-3">
+<div class="flex flex-col gap-4 sm:gap-5">
 
-    <div class="flex flex-col gap-2">
-        <p class="font-bold">CORE SPECIFICATIONS</p>
-        <p class="text-[#8695A8]"><i class="fa-solid fa-circle-check" style="color: #74C0FC;"></i>
-            {{description()[0]}}
-        </p>
-        <p class="text-[#8695A8]"><i class="fa-solid fa-circle-check" style="color: #74C0FC;"></i>
-            {{description()[1]}}
-
-        </p>
-        <p class="text-[#8695A8]"><i class="fa-solid fa-circle-check" style="color: #74C0FC;"></i>
-            {{description()[2]}}
-
-        </p>
-        <p class="text-[#8695A8]"><i class="fa-solid fa-circle-check" style="color: #74C0FC;"></i>
-            {{description()[3]}}
-
-        </p>
-    </div>
-
-
-
-
-    <div class="flex gap-3">
-        <div class="h-fit w-fit p-4 rounded-md bg-[#151F2C]">
-            <i class="fa-solid fa-truck" style="color: #74C0FC;"></i>
-            <p>Next Day Delivery</p>
-            <p class="text-[#404E61]">Free for orders over $500</p>
-        </div>
-        <div class="h-fit w-fit p-4 rounded-md bg-[#151F2C]">
-            <i class="fa-solid fa-shield" style="color: #74C0FC;"></i>
-            <p>2-Year Warranty</p>
-            <p class="text-[#404E61]">Premium coverage included</p>
+    @if(description()){
+    <div class="flex flex-col gap-3">
+        <p class="font-bold text-base sm:text-lg">CORE SPECIFICATIONS</p>
+        <div class="space-y-2">
+            <p class="text-[#8695A8] text-sm sm:text-base flex items-start gap-2">
+                <i class="fa-solid fa-circle-check mt-1 flex-shrink-0" style="color: #74C0FC;"></i>
+                <span>{{description()![0]}}</span>
+            </p>
+            <p class="text-[#8695A8] text-sm sm:text-base flex items-start gap-2">
+                <i class="fa-solid fa-circle-check mt-1 flex-shrink-0" style="color: #74C0FC;"></i>
+                <span>{{description()![1]}}</span>
+            </p>
+            <p class="text-[#8695A8] text-sm sm:text-base flex items-start gap-2">
+                <i class="fa-solid fa-circle-check mt-1 flex-shrink-0" style="color: #74C0FC;"></i>
+                <span>{{description()![2]}}</span>
+            </p>
+            <p class="text-[#8695A8] text-sm sm:text-base flex items-start gap-2">
+                <i class="fa-solid fa-circle-check mt-1 flex-shrink-0" style="color: #74C0FC;"></i>
+                <span>{{description()![3]}}</span>
+            </p>
         </div>
     </div>
+    }
 
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div class="p-4 rounded-md bg-[#151F2C]">
+            <i class="fa-solid fa-truck text-lg sm:text-xl mb-2" style="color: #74C0FC;"></i>
+            <p class="font-medium text-sm sm:text-base mb-1">Next Day Delivery</p>
+            <p class="text-[#404E61] text-xs sm:text-sm">Free for orders over $500</p>
+        </div>
+        <div class="p-4 rounded-md bg-[#151F2C]">
+            <i class="fa-solid fa-shield text-lg sm:text-xl mb-2" style="color: #74C0FC;"></i>
+            <p class="font-medium text-sm sm:text-base mb-1">2-Year Warranty</p>
+            <p class="text-[#404E61] text-xs sm:text-sm">Premium coverage included</p>
+        </div>
+    </div>
 
 </div>

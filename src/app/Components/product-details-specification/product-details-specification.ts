@@ -1,3 +1,4 @@
+
 import { Component, Input, Signal, computed } from '@angular/core';
 import { Product } from '../../Core/Interfaces/iproduct';
 
@@ -12,8 +13,11 @@ export class ProductDetailsSpecification {
   @Input() myProduct!: Signal<Product>;
 
   // ✅ derive data reactively
-  description = computed(() =>
-    this.myProduct().description.split(',')
-  );
+  description = computed(() => {
+    const desc = this.myProduct()?.description;
+    if (!desc) return null;
+    const parts = desc.split(',').map(s => s.trim()).filter(Boolean);
+    return parts.length ? parts : null;
+  });
 
 }

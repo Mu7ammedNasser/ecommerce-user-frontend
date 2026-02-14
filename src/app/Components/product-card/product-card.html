@@ -10,7 +10,7 @@
                     <!-- Card -->
                     <div class="bg-[#1C252E] rounded-2xl flex flex-col gap-3 items-start px-6 py-4 h-full">
 
-                        <!-- Image div - FIXED SIZE -->
+                        <!-- Image div -  -->
                         <div class="w-full h-48 overflow-hidden rounded-2xl">
                             <a [routerLink]="['/product-details', card.id]" class="block h-full">
                                 <img [src]="card.images?.[0]"  
@@ -25,9 +25,12 @@
                             <p class="text-[#258CF4] font-semibold text-sm whitespace-nowrap">${{card.price}}</p>
                         </div>
 
-                        <!-- Description - First line only -->
+                        <!-- Description - -->
                         <div class="w-full">
-                            <p class="text-[#9BAAB9] text-sm line-clamp-2">{{getFirstLine(card.description)}}</p>
+                            <a [routerLink]="['/product-details', card.id]" 
+                               class="text-[#9BAAB9] text-sm line-clamp-2 hover:text-[#b8c5d3] transition-colors cursor-pointer block">
+                                {{card.description}}
+                            </a>
                         </div>
 
                         <!-- Button -->

@@ -1,14 +1,27 @@
-<div>
+@if(myProduct()){
+<div class="w-full">
 
-    <div>
-        <img class="w-150 h-100 rounded-md" [src]="baseImg()" alt="">
+    <div class="w-full aspect-video sm:aspect-square lg:aspect-video mb-4">
+        <img class="w-full h-full object-cover rounded-md" [src]="myProduct()!.images[0]" alt="Main product image">
     </div>
 
-    <div class="flex gap-2 mt-4">
-        <img class="w-40 h-25 rounded-md" [src]="myProduct().images[1]" alt="img1" (click)="changeImg($event)">
-        <img class="w-40 h-25 rounded-md" [src]="myProduct().images[2]" alt="img2" (click)="changeImg($event)">
-        <img class="w-40 h-25 rounded-md" [src]="myProduct().images[3]" alt="img3" (click)="changeImg($event)">
-        <img class="w-40 h-25 rounded-md" [src]="myProduct().images[4]" alt="img4" (click)="changeImg($event)">
+    <div class="grid grid-cols-4 gap-2 sm:gap-3">
+        <img class="w-full aspect-square object-cover rounded-md cursor-pointer hover:opacity-80 transition-opacity" 
+             [src]="myProduct()!.images[1]" alt="Thumbnail 1" (click)="changeImg($event)">
+        <img class="w-full aspect-square object-cover rounded-md cursor-pointer hover:opacity-80 transition-opacity" 
+             [src]="myProduct()!.images[2]" alt="Thumbnail 2" (click)="changeImg($event)">
+        <img class="w-full aspect-square object-cover rounded-md cursor-pointer hover:opacity-80 transition-opacity" 
+             [src]="myProduct()!.images[3]" alt="Thumbnail 3" (click)="changeImg($event)">
+        <img class="w-full aspect-square object-cover rounded-md cursor-pointer hover:opacity-80 transition-opacity" 
+             [src]="myProduct()!.images[4]" alt="Thumbnail 4" (click)="changeImg($event)">
     </div>
 
 </div>
+
+}
+
+@else {
+    <div class="text-center py-8">
+        <p class="text-gray-400">Loading...</p>
+    </div>
+}

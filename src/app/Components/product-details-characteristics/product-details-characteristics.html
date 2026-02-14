@@ -1,73 +1,87 @@
+<div class="flex flex-col gap-4 sm:gap-5">
 
-<div class="flex flex-col gap-3">
-
-    
-        <div class="border-b border-b-[#1E293B]">
-            <p class="text-[#8E9DB1] w-fit">Premium Retail Price </p>
-            <span class="font-bold text-3xl mr-3">${{myProduct().price}}</span>
-            <span class="line-through text-[#92A1B5] mr-3 ">${{myProduct().originalPrice}}</span>
-            <span class="text-[#137FEC]">Save {{savingPercent()}}%</span>
+    <div class="border-b border-b-[#1E293B] pb-4">
+        <p class="text-[#8E9DB1] text-sm mb-2">Premium Retail Price</p>
+        <div class="flex flex-wrap items-baseline gap-2 sm:gap-3">
+            <span class="font-bold text-2xl sm:text-3xl">${{myProduct().price}}</span>
+            <span class="line-through text-[#92A1B5] text-lg sm:text-xl">${{myProduct().originalPrice}}</span>
+            <span class="text-[#137FEC] text-sm sm:text-base">Save {{savingPercent()}}%</span>
         </div>
+    </div>
 
-        <p class="text-[#DCE0E5]">SELECT COLOR</p>
-        <div class="flex gap-2">
-
+    <div>
+        <p class="text-[#DCE0E5] mb-3 text-sm sm:text-base">SELECT COLOR</p>
+        <div class="flex gap-2 sm:gap-3">
             <!-- dark-blue -->
-            <button (click)="changeRingColor('dark-blue')" [class.ring-2]="selectedColor === 'dark-blue'"
+            <button (click)="changeRingColor('dark-blue')" 
+                [class.ring-2]="selectedColor === 'dark-blue'"
                 [class.ring-white]="selectedColor === 'dark-blue'"
-                class="bg-[#1E3A5F] rounded-full w-12 h-12 transition-all">
+                class="bg-[#1E3A5F] rounded-full w-10 h-10 sm:w-12 sm:h-12 transition-all hover:scale-110"
+                aria-label="Dark blue color">
             </button>
 
             <!-- Gray Button -->
-            <button (click)="changeRingColor('gray')" [class.ring-2]="selectedColor === 'gray'"
+            <button (click)="changeRingColor('gray')" 
+                [class.ring-2]="selectedColor === 'gray'"
                 [class.ring-white]="selectedColor === 'gray'"
-                class="bg-[#94A3B8] rounded-full w-12 h-12 transition-all">
+                class="bg-[#94A3B8] rounded-full w-10 h-10 sm:w-12 sm:h-12 transition-all hover:scale-110"
+                aria-label="Gray color">
             </button>
 
             <!-- Blue Button -->
-            <button (click)="changeRingColor('blue')" [class.ring-2]="selectedColor === 'blue'"
+            <button (click)="changeRingColor('blue')" 
+                [class.ring-2]="selectedColor === 'blue'"
                 [class.ring-white]="selectedColor === 'blue'"
-                class="bg-[#3B82F6] rounded-full w-12 h-12 transition-all">
+                class="bg-[#3B82F6] rounded-full w-10 h-10 sm:w-12 sm:h-12 transition-all hover:scale-110"
+                aria-label="Blue color">
             </button>
-
         </div>
+    </div>
 
-
-        <div class="flex gap-2">
-            <button (click)="changeSize('standard')" [ngClass]="{
-        'bg-blue-500 text-white': selectedSize === 'standard',
-        'bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-white': selectedSize !== 'standard'
-    }" class="rounded-md p-2 transition flex items-center gap-2 cursor-pointer">
+    <div>
+        <p class="text-[#DCE0E5] mb-3 text-sm sm:text-base">SELECT SIZE</p>
+        <div class="grid grid-cols-3 gap-2 sm:flex sm:gap-3">
+            <button (click)="changeSize('standard')" 
+                [ngClass]="{
+                    'bg-blue-500 text-white': selectedSize === 'standard',
+                    'bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-white': selectedSize !== 'standard'
+                }" 
+                class="rounded-md p-2 sm:px-4 sm:py-2 transition flex items-center justify-center gap-2 cursor-pointer hover:opacity-90 text-sm sm:text-base">
                 Standard
             </button>
 
-            <button (click)="changeSize('large')" [ngClass]="{
-        'bg-blue-500 text-white': selectedSize === 'large',
-        'bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-white': selectedSize !== 'large'
-    }" class="rounded-md p-2 transition flex items-center gap-2 cursor-pointer">
+            <button (click)="changeSize('large')" 
+                [ngClass]="{
+                    'bg-blue-500 text-white': selectedSize === 'large',
+                    'bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-white': selectedSize !== 'large'
+                }" 
+                class="rounded-md p-2 sm:px-4 sm:py-2 transition flex items-center justify-center gap-2 cursor-pointer hover:opacity-90 text-sm sm:text-base">
                 Large(XL)
             </button>
 
-            <button (click)="changeSize('compact')" [ngClass]="{
-        'bg-blue-500 text-white': selectedSize === 'compact',
-        'bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-white': selectedSize !== 'compact'
-    }" class="rounded-md p-2 transition flex items-center gap-2 cursor-pointer">
+            <button (click)="changeSize('compact')" 
+                [ngClass]="{
+                    'bg-blue-500 text-white': selectedSize === 'compact',
+                    'bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-white': selectedSize !== 'compact'
+                }" 
+                class="rounded-md p-2 sm:px-4 sm:py-2 transition flex items-center justify-center gap-2 cursor-pointer hover:opacity-90 text-sm sm:text-base">
                 Compact
             </button>
         </div>
+    </div>
 
-
-        <div class="flex gap-3">
-            <div class="bg-[#1E293B] rounded-md w-fit   flex items-center justify-between gap-6 p-2">
-                <button (click)="decreaseCount()" class="hover:cursor-pointer text-2xl">-</button>
-                <span>{{counter}}</span>
-                <button (click)="increaseCount()" class="hover:cursor-pointer text-2xl">+</button>
-            </div>
-
-            <button
-                class="bg-[#137FEC] text-[#FFFFFF] rounded-md flex items-center w-fit px-4 py-2 hover:cursor-pointer hover:bg-blue-600 dark:hover:bg-blue-600" routerLink="/cart"><i
-                    class="fa-solid fa-cart-shopping"></i> ADD TO CART</button>
+    <div class="flex flex-col sm:flex-row gap-3">
+        <div class="bg-[#1E293B] rounded-md w-full sm:w-fit flex items-center justify-between sm:justify-center gap-6 sm:gap-8 p-3 sm:p-2 sm:px-4">
+            <button (click)="decreaseCount()" class="hover:cursor-pointer text-xl sm:text-2xl hover:text-blue-500 transition px-2">-</button>
+            <span class="text-base sm:text-lg font-medium min-w-[2rem] text-center">{{counter}}</span>
+            <button (click)="increaseCount()" class="hover:cursor-pointer text-xl sm:text-2xl hover:text-blue-500 transition px-2">+</button>
         </div>
 
-    
+        <button class="bg-[#137FEC] text-[#FFFFFF] rounded-md flex items-center justify-center w-full sm:flex-1 px-4 py-3 sm:py-2 hover:cursor-pointer hover:bg-blue-600 dark:hover:bg-blue-600 transition gap-2 text-sm sm:text-base font-medium" 
+                routerLink="/cart">
+            <i class="fa-solid fa-cart-shopping"></i> 
+            <span>ADD TO CART</span>
+        </button>
+    </div>
+
 </div>

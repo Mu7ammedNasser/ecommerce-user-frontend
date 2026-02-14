@@ -44,13 +44,6 @@ export class ProductCard {
     });
   }
 
-  // Get first line of description
-  getFirstLine(description: string): string {
-    if (!description) return '';
-    const firstLine = description.split('.')[0]; // Split by period
-    return firstLine + (firstLine.length < description.length ? '...' : '');
-  }
-
   get canGoPrev() {
     return this.currentIndex > 0;
   }
