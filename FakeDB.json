@@ -81,7 +81,8 @@
       "country": "Egypt",
       "city": "Cairo",
       "password": "123123",
-      "confirmPassword": "123123"
+      "confirmPassword": "123123",
+      "phone": "01142977722"
     },
     {
       "id": "6e81",
