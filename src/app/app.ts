@@ -1,5 +1,6 @@
 import { Component, inject, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { NgxSpinnerModule } from 'ngx-spinner';
 import { SideBar } from './Components/side-bar/side-bar';
 import { ThemeService } from './Core/Services/theme';
 import { ThemeToggle } from "./Components/theme-toggle/theme-toggle";
@@ -8,7 +9,7 @@ import { Header } from "./Components/header/header";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, ThemeToggle, Footer, Header],
+  imports: [RouterOutlet, NgxSpinnerModule, ThemeToggle, Footer, Header],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })

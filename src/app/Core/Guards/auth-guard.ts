@@ -12,5 +12,5 @@ export const authGuard: CanActivateFn = (route, state) => {
   }
 
   // Return UrlTree so both client and SSR respond with a redirect to /login
-  return router.createUrlTree(['/login']);
+  return router.parseUrl('/login');
 };

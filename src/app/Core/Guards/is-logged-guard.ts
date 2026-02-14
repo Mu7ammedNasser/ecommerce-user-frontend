@@ -2,11 +2,6 @@ import { isPlatformBrowser } from '@angular/common';
 import { inject, PLATFORM_ID } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
 
-/**
- * Guard for guest-only routes (e.g. login, register).
- * If user is already logged in → redirect to /home.
- * If not logged in → allow access.
- */
 export const isLoggedGuard: CanActivateFn = (route, state) => {
   const router = inject(Router);
   const platformId = inject(PLATFORM_ID);
@@ -17,5 +12,5 @@ export const isLoggedGuard: CanActivateFn = (route, state) => {
   }
 
   // Already logged in: redirect to home so they don't see login/register
-  return router.createUrlTree(['/home']);
+  return router.createUrlTree(['/products']);
 };
