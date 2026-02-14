@@ -104,6 +104,16 @@
       "city": "Cairo",
       "password": "123456",
       "confirmPassword": "123456"
+    },
+    {
+      "id": "06ff",
+      "firstName": "Mohamed",
+      "lastName": "Nasser",
+      "email": "mo.nasser20032003@gmail.com",
+      "country": "Egypt",
+      "city": "Cairo",
+      "password": "123123",
+      "confirmPassword": "123123"
     }
   ],
   "categories": [
