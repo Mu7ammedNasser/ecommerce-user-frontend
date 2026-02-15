@@ -17,7 +17,7 @@
       "city": "Cairo",
       "password": "123456",
       "confirmPassword": "123456",
-      "isActive": true
+      "isActive": true 
     },
     {
       "id": "3cb1",
